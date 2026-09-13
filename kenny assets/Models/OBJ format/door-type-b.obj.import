@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmgvjx2s3noyw"
+path="res://.godot/imported/door-type-b.obj-dae165bc5d1ac5ffc3554fc57ceb627b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/door-type-b.obj-dae165bc5d1ac5ffc3554fc57ceb627b.mesh"]
+
+source_file="res://kenny assets/Models/OBJ format/door-type-b.obj"
+dest_files=["res://.godot/imported/door-type-b.obj-dae165bc5d1ac5ffc3554fc57ceb627b.mesh", "res://.godot/imported/door-type-b.obj-dae165bc5d1ac5ffc3554fc57ceb627b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

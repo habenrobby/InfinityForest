@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjifiruha3kpj"
+path="res://.godot/imported/detail-barrier-strong-damaged.obj-c8e41339f83373974ef71d3a5e384e12.mesh"
+
+[deps]
+
+files=["res://.godot/imported/detail-barrier-strong-damaged.obj-c8e41339f83373974ef71d3a5e384e12.mesh"]
+
+source_file="res://kenny assets/Models/OBJ format/detail-barrier-strong-damaged.obj"
+dest_files=["res://.godot/imported/detail-barrier-strong-damaged.obj-c8e41339f83373974ef71d3a5e384e12.mesh", "res://.godot/imported/detail-barrier-strong-damaged.obj-c8e41339f83373974ef71d3a5e384e12.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

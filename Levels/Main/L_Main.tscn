@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://d2vgv6ie0v40s"]
+
+[ext_resource type="Script" uid="uid://1ryhjik5vack" path="res://Levels/Main/L_Main.gd" id="1_km1jj"]
+[ext_resource type="PackedScene" uid="uid://bdupkh0grwy27" path="res://Player/Player.tscn" id="1_qgept"]
+[ext_resource type="PackedScene" uid="uid://dlhsqaxmhslk1" path="res://Levels/Main/ArenaGeometry.tscn" id="3_1vemw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ucjps"]
+radius = 0.05
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ggqlx"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_t5ash"]
+sky_material = SubResource("ProceduralSkyMaterial_ggqlx")
+
+[sub_resource type="Environment" id="Environment_7ofk6"]
+background_mode = 1
+background_color = Color(0.039215688, 0.05490196, 0.101960786, 1)
+background_energy_multiplier = 0.95
+sky = SubResource("Sky_t5ash")
+ambient_light_color = Color(0.039215688, 0.05490196, 0.101960786, 1)
+ambient_light_sky_contribution = 0.9
+ambient_light_energy = 0.05
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.41888583, 0.5106334, 0.4984241, 1)
+fog_light_energy = 0.8
+fog_sky_affect = 0.3
+
+[node name="L_Main" type="Node3D" unique_id=1813476632]
+script = ExtResource("1_km1jj")
+
+[node name="Player" parent="." unique_id=1193879027 instance=ExtResource("1_qgept")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -2.3009045, 73.20805, -1.4588263)
+
+[node name="Collision" parent="Player" index="0"]
+shape = SubResource("CapsuleShape3D_ucjps")
+
+[node name="Head" parent="Player" index="1"]
+y_limit = 0.0
+
+[node name="ArenaGeometry" parent="." unique_id=1071468172 instance=ExtResource("3_1vemw")]
+
+[node name="Lighting" type="Node" parent="." unique_id=115200527]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting" unique_id=540838784]
+environment = SubResource("Environment_7ofk6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=458792287]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866026, -0.5, 0.75, -0.433013, 0, 5, 0)
+light_energy = 0.15
+shadow_enabled = true
+shadow_blur = 5.04
+directional_shadow_fade_start = 0.629
+directional_shadow_max_distance = 241.0
+
+[editable path="Player"]

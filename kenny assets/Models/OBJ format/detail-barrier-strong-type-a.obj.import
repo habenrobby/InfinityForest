@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cphxpbr6uuvv"
+path="res://.godot/imported/detail-barrier-strong-type-a.obj-7b662c32a4a3e55b7e90450f399a636c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/detail-barrier-strong-type-a.obj-7b662c32a4a3e55b7e90450f399a636c.mesh"]
+
+source_file="res://kenny assets/Models/OBJ format/detail-barrier-strong-type-a.obj"
+dest_files=["res://.godot/imported/detail-barrier-strong-type-a.obj-7b662c32a4a3e55b7e90450f399a636c.mesh", "res://.godot/imported/detail-barrier-strong-type-a.obj-7b662c32a4a3e55b7e90450f399a636c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

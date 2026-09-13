@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ctkc7yqdqdtao"]
+
+[ext_resource type="Material" uid="uid://sofvlrq3jmka" path="res://Levels/Main/Materials/M_Dark.tres" id="1_ip66u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_srxwf"]
+size = Vector3(3000, 0.5, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l18ry"]
+size = Vector3(3000, 1, 1000)
+
+[node name="Floor" type="MeshInstance3D" unique_id=2115185291]
+mesh = SubResource("BoxMesh_srxwf")
+surface_material_override/0 = ExtResource("1_ip66u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1328392511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=504444976]
+shape = SubResource("BoxShape3D_l18ry")

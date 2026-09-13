@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1rqvawphgr60"]
+
+[ext_resource type="PackedScene" uid="uid://bjh2ay3y2p473" path="res://kenny assets/Models/GLB format/tree-large.glb" id="1_yqo4m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sucsc"]
+height = 1.9692383
+
+[node name="tree-large2" unique_id=278237261 instance=ExtResource("1_yqo4m")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tree-large" parent_id_path=PackedInt32Array(982630439) index="0" unique_id=149600623]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree-large/StaticBody3D" index="0" unique_id=246356642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74780273, 0)
+shape = SubResource("CylinderShape3D_sucsc")
