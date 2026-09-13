@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dlhsqaxmhslk1"]
+
+[ext_resource type="Script" uid="uid://b5yg5h6ep61nv" path="res://Levels/Main/terrain_generator.gd" id="1_xtvh8"]
+[ext_resource type="Texture2D" uid="uid://djw7gmy7kemb6" path="res://art/heightmap.png.png" id="2_b53x2"]
+[ext_resource type="PackedScene" uid="uid://biidt8baki27v" path="res://kenny assets/Models/GLB format/tree-pine-large.glb" id="3_ohygj"]
+[ext_resource type="PackedScene" uid="uid://krhdd66oh1lw" path="res://art/source/792e7f65-178c-4ff1-8d801.glb" id="4_gyqxg"]
+
+[node name="ArenaGeometry" type="Node3D" unique_id=1071468172]
+
+[node name="terrain generator" type="Node3D" parent="." unique_id=1008340203]
+transform = Transform3D(0.5259887, 0, 0.8504916, 0, 1, 0, -0.8504916, 0, 0.5259887, 0, 0, 0)
+script = ExtResource("1_xtvh8")
+heightmap = ExtResource("2_b53x2")
+terrain_width = 1500.0
+terrain_depth = 500.0
+height_scale = 80.0
+tree_scene = ExtResource("3_ohygj")
+tree_count = 50000
+tree_height_range = Vector2(8, 20)
+tree_width_range = Vector2(6, 8)
+house_scene = ExtResource("4_gyqxg")
+house_count = 1000
