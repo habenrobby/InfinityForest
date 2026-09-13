@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://x4dva5330j1c"]
+
+[ext_resource type="Script" uid="uid://cdeatfbjj0c6o" path="res://tutorial_menu.gd" id="1_x8rwe"]
+[ext_resource type="Texture2D" uid="uid://chw3ab0n8enkj" path="res://Art/ybmzyvw3vb781.png" id="2_mb03k"]
+[ext_resource type="FontFile" uid="uid://c2pko7wjtkht" path="res://Fonts/bloodcrow.ttf" id="3_6lc7f"]
+[ext_resource type="Texture2D" uid="uid://ci7trjayrmx1a" path="res://Art/barbottom-with-text-removebg-preview.png" id="4_mb03k"]
+
+[node name="TutorialMenu" type="Control" unique_id=978742974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -2.0
+offset_right = -5.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x8rwe")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=202301169]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 642.0
+texture = ExtResource("2_mb03k")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1124978855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1072691872]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2113019269]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36034977, 0, 0.025759794, 1)
+theme_override_constants/line_spacing = 1000
+theme_override_constants/paragraph_spacing = 400
+theme_override_fonts/font = ExtResource("3_6lc7f")
+theme_override_font_sizes/font_size = 100
+text = "HOW TO SURVIVE"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Label" unique_id=728786808]
+layout_mode = 0
+offset_left = -150.0
+offset_top = -239.0
+offset_right = 1001.0
+offset_bottom = 405.0
+texture = ExtResource("4_mb03k")
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=580590766]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6lc7f")
+text = "BACK
+"

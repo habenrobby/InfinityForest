@@ -1,29 +1,22 @@
 extends Node
-class_name Health
 
-
-signal health_changed(current: int, maximum: int)
+signal health_changed(current: int, max: int)
 signal died
 
-@export var max_health := 100
-var health: int
-
+@export var max_hp := 100
+var hp := max_hp: set = set_hp
 
 func _ready() -> void:
-	health = max_health
+	hp = max_hp
 
-
-func take_damage(amount: int) -> void:
-	if amount <= 0:
-		return
-	health = clampi(health - amount, 0, max_health)
-	health_changed.emit(health, max_health)
-	if health <= 0:
+func damage(amount: int) -> void:
+	set_hp(hp - amount)
+	if hp <= 0:
 		died.emit()
 
-
 func heal(amount: int) -> void:
-	if amount <= 0:
-		return
-	health = clampi(health + amount, 0, max_health)
-	health_changed.emit(health, max_health)
+	set_hp(hp + amount)
+
+func set_hp(value: int) -> void:
+	hp = clampi(value, 0, max_hp)
+	health_changed.emit(hp, max_hp)

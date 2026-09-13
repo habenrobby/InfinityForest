@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxw24p2i7qafh"
-path.s3tc="res://.godot/imported/792e7f65-178c-4ff1-8d801_rustic_wooden_hut_3d_model_basecolor.jpg-9210b4e30f17ba7dcb9fb5e5987d4ef8.s3tc.ctex"
+path.s3tc="res://.godot/imported/792e7f65-178c-4ff1-8d801_rustic_wooden_hut_3d_model_basecolor.jpg-d7b192d325a4cb7c01e3095e3a44164a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://art/source/792e7f65-178c-4ff1-8d801_rustic_wooden_hut_3d_model_basecolor.jpg"
-dest_files=["res://.godot/imported/792e7f65-178c-4ff1-8d801_rustic_wooden_hut_3d_model_basecolor.jpg-9210b4e30f17ba7dcb9fb5e5987d4ef8.s3tc.ctex"]
+source_file="res://Art/source/792e7f65-178c-4ff1-8d801_rustic_wooden_hut_3d_model_basecolor.jpg"
+dest_files=["res://.godot/imported/792e7f65-178c-4ff1-8d801_rustic_wooden_hut_3d_model_basecolor.jpg-d7b192d325a4cb7c01e3095e3a44164a.s3tc.ctex"]
 
 [params]
 

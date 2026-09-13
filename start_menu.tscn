@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dxwsv1h5diija"]
+
+[ext_resource type="Script" uid="uid://bilai4k8gs027" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Texture2D" uid="uid://chw3ab0n8enkj" path="res://Art/ybmzyvw3vb781.png" id="2_ctwoq"]
+[ext_resource type="FontFile" uid="uid://c2pko7wjtkht" path="res://Fonts/bloodcrow.ttf" id="3_vpdu5"]
+[ext_resource type="Texture2D" uid="uid://carjdv6juo2va" path="res://icon.png" id="4_ppfnh"]
+[ext_resource type="Texture2D" uid="uid://0b6b3j4ufque" path="res://kenny assets/Previews/pallet.png" id="5_7boi2"]
+
+[node name="StartMenu" type="Control" unique_id=1150844456]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwbto")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1247311520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = 14.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ctwoq")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1235876023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 19.0
+offset_right = 4.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1820852830]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1333860237]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48, 0.014399986, 0.014399986, 1)
+theme_override_fonts/font = ExtResource("3_vpdu5")
+theme_override_font_sizes/font_size = 70
+text = "INFINITE FOREST
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=702582586]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("4_ppfnh")
+text = "START
+"
+icon = ExtResource("5_7boi2")
+
+[node name="TutorialButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1389227961]
+layout_mode = 2
+text = "TUTORIAL"

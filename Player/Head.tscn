@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8drbos167vf8"]
+[gd_scene format=3 uid="uid://b8drbos167vf8"]
 
-[ext_resource type="Script" path="res://Player/Head.gd" id="1_enjfg"]
+[ext_resource type="Script" uid="uid://bsw8c4y6ylwl4" path="res://Player/Head.gd" id="1_enjfg"]
+[ext_resource type="PackedScene" uid="uid://cf4wr7f1wxdii" path="res://Player/Torch.tscn" id="2_irtxf"]
 
-[node name="Head" type="Node3D"]
+[node name="Head" type="Node3D" unique_id=1334350071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
-script = ExtResource( "1_enjfg" )
+script = ExtResource("1_enjfg")
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="." unique_id=391260093]
 current = true
+
+[node name="Torch" parent="Camera" unique_id=1494559621 instance=ExtResource("2_irtxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.2, 0.4)

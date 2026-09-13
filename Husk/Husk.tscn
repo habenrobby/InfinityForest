@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://btd6xuft2ik3a"]
+
+[ext_resource type="Script" uid="uid://bodi12mdgg17f" path="res://Husk/Husk.gd" id="1_3r8js"]
+[ext_resource type="Texture2D" uid="uid://cfmlo38f6mqkw" path="res://Art/husk.detected2.png" id="2_5b5as"]
+[ext_resource type="Texture2D" uid="uid://b3kmku7l3cyvk" path="res://Art/husk.standingdemo.png" id="2_licba"]
+[ext_resource type="Texture2D" uid="uid://hmqsohcalbpn" path="res://Art/husk.detected.png" id="3_w7kxr"]
+[ext_resource type="Texture2D" uid="uid://wxl8tuab7a7q" path="res://Art/husk.turns2.png" id="4_licba"]
+[ext_resource type="Texture2D" uid="uid://15pyfehm2dnv" path="res://Art/husk.looks.png" id="4_twk28"]
+[ext_resource type="Texture2D" uid="uid://dn340lcepe2ew" path="res://Art/husk.looks2.png" id="5_licba"]
+[ext_resource type="Texture2D" uid="uid://drq5lsmxccbf3" path="res://Art/husk.turns.png" id="5_ocee6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sko7y"]
+margin = 0.466
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b5as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_licba")
+}],
+"loop": 1,
+"name": &"chase",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5b5as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w7kxr")
+}],
+"loop": 1,
+"name": &"eating",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_licba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ocee6")
+}],
+"loop": 0,
+"name": &"look_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_twk28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_licba")
+}],
+"loop": 0,
+"name": &"spot",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y5qrj"]
+radius = 12.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8g6g3"]
+height = 8.571777
+radius = 3.2167969
+
+[node name="Husk" type="CharacterBody3D" unique_id=461867683]
+script = ExtResource("1_3r8js")
+chase_speed = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=942961866]
+visible = false
+shape = SubResource("CapsuleShape3D_sko7y")
+debug_fill = false
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=864475125]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.15317, 4.3813386, 0.7882359)
+layers = 3
+modulate = Color(1, 0.06999999, 0.06999999, 1)
+billboard = 1
+render_priority = 13
+sprite_frames = SubResource("SpriteFrames_5b5as")
+animation = &"chase"
+speed_scale = 5.0
+
+[node name="DetectionArea" type="Area3D" parent="." unique_id=1295800875]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" unique_id=1047007568]
+shape = SubResource("SphereShape3D_y5qrj")
+
+[node name="CatchArea" type="Area3D" parent="." unique_id=2083323539]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CatchArea" unique_id=2071514128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2858887, 0)
+shape = SubResource("CylinderShape3D_8g6g3")

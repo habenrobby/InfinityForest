@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bq2eh70kdixjr"]
+
+[ext_resource type="FontFile" uid="uid://c2pko7wjtkht" path="res://Fonts/bloodcrow.ttf" id="1_2okua"]
+
+[resource]
+default_font = ExtResource("1_2okua")
+default_font_size = 27

@@ -14,18 +14,34 @@ var rot := Vector3()
 func _ready() -> void:
 	mouse_sensitivity = mouse_sensitivity / 1000
 	y_limit = deg_to_rad(y_limit)
+	print("Loop count is: ", GameState.loop_count)
+	
 
 
 # Called when there is an input event
-func _input(event: InputEvent) -> void:
-	# Mouse look (only if the mouse is captured).
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		mouse_axis = event.relative
-		camera_rotation()
+@export var swing_threshold := 25.0
+var swing_cooldown := 0.0
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		var drag_speed = event.relative.length()
+		
+		if drag_speed > swing_threshold and swing_cooldown <= 0.0:
+			flare_torch()
+			swing_cooldown = 0.4
+		else:
+			mouse_axis = event.relative
+			camera_rotation()
+
+
+func flare_torch() -> void:
+	get_node("Camera/Torch").flare()
 
 # Called every physics tick. 'delta' is constant
 func _physics_process(delta: float) -> void:
+	if swing_cooldown > 0.0:
+		swing_cooldown -= delta
+	
 	var joystick_axis := Input.get_vector(&"look_left", &"look_right",
 			&"look_down", &"look_up")
 	
@@ -37,8 +53,6 @@ func _physics_process(delta: float) -> void:
 func camera_rotation() -> void:
 	# Horizontal mouse look.
 	rot.y -= mouse_axis.x * mouse_sensitivity
-	# Vertical mouse look.
-	rot.x = clamp(rot.x - mouse_axis.y * mouse_sensitivity, -y_limit, y_limit)
-	
+		
 	get_owner().rotation.y = rot.y
 	rotation.x = rot.x

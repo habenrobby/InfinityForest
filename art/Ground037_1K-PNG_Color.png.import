@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://delpun1umxf7m"
-path.s3tc="res://.godot/imported/Ground037_1K-PNG_Color.png-d224dff9f2ddd8ae6f9d13f137a33f55.s3tc.ctex"
+path.s3tc="res://.godot/imported/Ground037_1K-PNG_Color.png-f4d4bc5253ea39a4c44cbef8c30e2c5f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/Ground037_1K-PNG_Color.png"
-dest_files=["res://.godot/imported/Ground037_1K-PNG_Color.png-d224dff9f2ddd8ae6f9d13f137a33f55.s3tc.ctex"]
+source_file="res://Art/Ground037_1K-PNG_Color.png"
+dest_files=["res://.godot/imported/Ground037_1K-PNG_Color.png-f4d4bc5253ea39a4c44cbef8c30e2c5f.s3tc.ctex"]
 
 [params]
 

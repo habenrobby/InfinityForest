@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cf4wr7f1wxdii"]
+
+[ext_resource type="Script" uid="uid://2n8jeeuate2c" path="res://Player/Torch.gd" id="1_qo75x"]
+
+[node name="Torch" type="SpotLight3D" unique_id=1494559621]
+light_color = Color(1, 0.6666667, 0.3137255, 1)
+shadow_enabled = true
+spot_range = 25.0
+script = ExtResource("1_qo75x")

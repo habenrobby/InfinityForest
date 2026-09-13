@@ -39,8 +39,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	attack_timer = maxf(attack_timer - delta, 0.0)
 
+	# Apply gravity when in the air
 	if not is_on_floor():
-		velocity.y -= get_gravity() * delta
+		var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity", 9.8)
+		velocity.y -= gravity * delta
 
 	if not is_instance_valid(target):
 		target = get_tree().get_first_node_in_group(&"player")
@@ -103,11 +105,11 @@ func attack() -> void:
 	if attack_timer > 0.0:
 		return
 	attack_timer = attack_cooldown
-	if target.has_node(&"Health"):
-		var health: Node = target.get_node(&"Health")
-		if health.has_method(&"take_damage"):
-			health.take_damage(attack_damage)
-	attack_landed.emit(target, attack_damage)
+	
+	if is_instance_valid(target):
+		if target.has_method(&"take_damage"):
+			target.take_damage(attack_damage)
+		attack_landed.emit(target, attack_damage)
 
 
 # Steer towards a horizontal direction with acceleration.

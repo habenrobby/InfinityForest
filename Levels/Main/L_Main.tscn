@@ -1,33 +1,64 @@
-[gd_scene format=3 uid="uid://d2vgv6ie0v40s"]
+[gd_scene format=3 uid="uid://hfv7xu8fwuqm"]
 
 [ext_resource type="Script" uid="uid://1ryhjik5vack" path="res://Levels/Main/L_Main.gd" id="1_km1jj"]
 [ext_resource type="PackedScene" uid="uid://bdupkh0grwy27" path="res://Player/Player.tscn" id="1_qgept"]
 [ext_resource type="PackedScene" uid="uid://dlhsqaxmhslk1" path="res://Levels/Main/ArenaGeometry.tscn" id="3_1vemw"]
+[ext_resource type="Script" uid="uid://r0rvo7nv6ykf" path="res://Levels/Main/directional_light_3d.gd" id="4_3bgcu"]
+[ext_resource type="Script" uid="uid://dg1qgjqejqah" path="res://Husk/HuskSpawner.gd" id="5_spawner"]
+[ext_resource type="Script" uid="uid://iwdwxmp1sf2e" path="res://Managers/GameManager.gd" id="6_manager"]
+[ext_resource type="PackedScene" path="res://HUD.tscn" id="7_hud"]
+[ext_resource type="PackedScene" path="res://DeathSequence.tscn" id="8_death"]
+[ext_resource type="Texture2D" uid="uid://ccom4bt26mesy" path="res://Art/arm.png" id="9_e310h"]
+[ext_resource type="Texture2D" uid="uid://c7u1enx0mv2ib" path="res://Art/flame2.png" id="10_cto5u"]
+[ext_resource type="Texture2D" uid="uid://ctsvo52w0i58b" path="res://Art/flamebase.png" id="11_4wo4h"]
+[ext_resource type="Texture2D" uid="uid://6gg6jwsy1a8w" path="res://Art/BARBOTTOM.png" id="12_4wo4h"]
+[ext_resource type="Texture2D" uid="uid://dhy7qm4fhg2st" path="res://Art/BARTOP.png" id="13_8g6g3"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ucjps"]
-radius = 0.05
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.35
+height = 1.8
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ggqlx"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rr74"]
+sky_top_color = Color(0.019607844, 0.03137255, 0.078431375, 1)
+sky_horizon_color = Color(0.078431375, 0.078431375, 0.15686275, 1)
+ground_bottom_color = Color(0.019607844, 0.019607844, 0.03137255, 1)
+ground_horizon_color = Color(0.101832174, 0.101858936, 0.21687412, 1)
+ground_energy_multiplier = 29.52
 
 [sub_resource type="Sky" id="Sky_t5ash"]
-sky_material = SubResource("ProceduralSkyMaterial_ggqlx")
+sky_material = SubResource("ProceduralSkyMaterial_4rr74")
 
 [sub_resource type="Environment" id="Environment_7ofk6"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.039215688, 0.05490196, 0.101960786, 1)
-background_energy_multiplier = 0.95
+background_energy_multiplier = 1.29
 sky = SubResource("Sky_t5ash")
-ambient_light_color = Color(0.039215688, 0.05490196, 0.101960786, 1)
-ambient_light_sky_contribution = 0.9
-ambient_light_energy = 0.05
-tonemap_mode = 2
-glow_enabled = true
+ambient_light_source = 3
+ambient_light_color = Color(0.17225105, 0.20940837, 0.3205746, 1)
+ambient_light_sky_contribution = 0.14
+ambient_light_energy = 0.21
+reflected_light_source = 2
+tonemap_mode = 1
+tonemap_exposure = 0.28
+tonemap_white = 14.4
+glow_strength = 0.62
 fog_enabled = true
-fog_light_color = Color(0.41888583, 0.5106334, 0.4984241, 1)
-fog_light_energy = 0.8
-fog_sky_affect = 0.3
+fog_light_color = Color(0.2255, 0.26240003, 0.41, 1)
+fog_light_energy = 4.33
+fog_density = 0.0458
+fog_height_density = -0.004
+fog_depth_curve = 0.15932065
+fog_depth_begin = 0.0
+fog_depth_end = 1179.5
+volumetric_fog_density = 0.1825
+volumetric_fog_albedo = Color(0.24298164, 0.29573223, 0.34879166, 1)
+volumetric_fog_emission = Color(0.05721601, 0.1854195, 0.2839196, 1)
+volumetric_fog_emission_energy = 609.27
+volumetric_fog_length = 357.19
+adjustment_enabled = true
+adjustment_brightness = 0.59
+adjustment_contrast = 0.855
+adjustment_saturation = 1.74
 
 [node name="L_Main" type="Node3D" unique_id=1813476632]
 script = ExtResource("1_km1jj")
@@ -36,10 +67,10 @@ script = ExtResource("1_km1jj")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -2.3009045, 73.20805, -1.4588263)
 
 [node name="Collision" parent="Player" index="0"]
-shape = SubResource("CapsuleShape3D_ucjps")
+shape = SubResource("CapsuleShape3D_player")
 
-[node name="Head" parent="Player" index="1"]
-y_limit = 0.0
+[node name="Head" parent="Player" index="1" unique_id=1746346007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
 
 [node name="ArenaGeometry" parent="." unique_id=1071468172 instance=ExtResource("3_1vemw")]
 
@@ -49,11 +80,101 @@ y_limit = 0.0
 environment = SubResource("Environment_7ofk6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=458792287]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866026, -0.5, 0.75, -0.433013, 0, 5, 0)
-light_energy = 0.15
+transform = Transform3D(1, 0, 0, 0, 0.91775465, 0.3971479, 0, -0.3971479, 0.91775465, 0, 5, 0)
+rotation_order = 5
+light_color = Color(0.41568628, 0.5647059, 0.77254903, 1)
+light_energy = 0.17
 shadow_enabled = true
 shadow_blur = 5.04
 directional_shadow_fade_start = 0.629
 directional_shadow_max_distance = 241.0
+script = ExtResource("4_3bgcu")
+
+[node name="HuskSpawns" type="Node3D" parent="." unique_id=2043429752]
+
+[node name="Spawn0" type="Marker3D" parent="HuskSpawns" unique_id=78557624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 95, 1.45)
+
+[node name="Spawn1" type="Marker3D" parent="HuskSpawns" unique_id=2046416489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 95, -30)
+
+[node name="Spawn2" type="Marker3D" parent="HuskSpawns" unique_id=1366370723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95, 95, 55)
+
+[node name="Spawn3" type="Marker3D" parent="HuskSpawns" unique_id=388809778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 95, -140)
+
+[node name="Spawn4" type="Marker3D" parent="HuskSpawns" unique_id=362730101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 95, 160)
+
+[node name="Spawn5" type="Marker3D" parent="HuskSpawns" unique_id=1291545318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 95, 120)
+
+[node name="Spawn6" type="Marker3D" parent="HuskSpawns" unique_id=739831203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 95, -100)
+
+[node name="Spawn7" type="Marker3D" parent="HuskSpawns" unique_id=1913094005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 95, -220)
+
+[node name="GameManager" type="Node" parent="." unique_id=1670990486]
+script = ExtResource("6_manager")
+
+[node name="HuskSpawner" type="Node3D" parent="." unique_id=1555466006]
+script = ExtResource("5_spawner")
+total_husks = 5
+sitting_husks = 2
+min_distance_from_player = 2.0
+
+[node name="HUD" parent="." unique_id=1397645130 instance=ExtResource("7_hud")]
+
+[node name="DeathSequence" parent="." unique_id=1134016754 instance=ExtResource("8_death")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=836068645]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=656748021]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 294.0
+offset_top = 106.0
+offset_right = -32.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_e310h")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer" unique_id=1737951479]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 294.0
+offset_top = 106.0
+offset_right = -32.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_cto5u")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=1356861198]
+offset_left = 412.0
+offset_top = 125.0
+offset_right = 1052.0
+offset_bottom = 485.0
+texture = ExtResource("11_4wo4h")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer" unique_id=1979505507]
+offset_left = 7.0
+offset_top = 117.0
+offset_right = 1149.9746
+offset_bottom = 646.0
+texture = ExtResource("12_4wo4h")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer" unique_id=1560180768]
+offset_left = -115.0
+offset_top = -24.0
+offset_right = 1219.0
+offset_bottom = 1188.0
+texture = ExtResource("13_8g6g3")
 
 [editable path="Player"]

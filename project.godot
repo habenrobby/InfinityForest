@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="First Person Starter"
-run/main_scene="res://Levels/Main/L_Main.tscn"
+run/main_scene="uid://dxwsv1h5diija"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.png"
+
+[autoload]
+
+GameState="*uid://m7v1aidaeloo"
 
 [filesystem]
 
